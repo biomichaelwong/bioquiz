@@ -1,4 +1,11 @@
-// ---- LANGUAGE SETUP ----
+emailjs.init("YOUR_PUBLIC_KEY"); // <-- replace with your EmailJS public key
+
+const QUESTIONS_PATH = "questions/";
+let manifest = [];
+let currentQuestions = [];
+let userAnswers = [];
+let qIndex = 0;
+let selectedDate = null;
 let currentLang = localStorage.getItem('lang') || 'en';
 
 const uiText = {
@@ -13,6 +20,7 @@ const uiText = {
     finish: "Finish 🏁",
     explanation: "Explanation:",
     modelAnswer: "Model Answer:",
+    sqPlaceholder: "Type your answer here...",
     questionOf: (i, total) => `Question ${i} of ${total}`,
     scoreText: (correct, total) => `You got ${correct} out of ${total} right today!`,
     toggleLabel: "中文"
@@ -28,40 +36,14 @@ const uiText = {
     finish: "完成 🏁",
     explanation: "解釋：",
     modelAnswer: "參考答案：",
+    sqPlaceholder: "在這裡輸入你的答案...",
     questionOf: (i, total) => `第 ${i} 題，共 ${total} 題`,
     scoreText: (correct, total) => `你今天答對了 ${correct} / ${total} 題！`,
     toggleLabel: "EN"
   }
 };
 
-function applyLanguageToStaticUI() {
-  document.getElementById('langToggle').textContent = uiText[currentLang].toggleLabel;
-  document.querySelector('[data-i18n="streakLabel"]').textContent = uiText[currentLang].streakLabel;
-  document.getElementById('startBtn').textContent = uiText[currentLang].letsGo;
-  document.querySelector('#emailGate p').textContent = uiText[currentLang].emailPrompt;
-  document.querySelector('#finishScreen h2').textContent = uiText[currentLang].finishTitle;
-  document.getElementById('sendEmailBtn').textContent = uiText[currentLang].sendResults;
-}
-
-document.getElementById('langToggle').addEventListener('click', () => {
-  currentLang = currentLang === 'en' ? 'zh' : 'en';
-  localStorage.setItem('lang', currentLang);
-  applyLanguageToStaticUI();
-  renderQuestion(); // re-render current question in new language
-});
-
-emailjs.init("YOUR_PUBLIC_KEY");
-
-const QUESTIONS_PATH = "questions/";
-let manifest = [];
-let currentQuestions = [];
-let userAnswers = [];
-let qIndex = 0;
-let selectedDate = null;
-
-function todayStr() {
-  return new Date().toISOString().split('T')[0];
-}
+function todayStr() { return new Date().toISOString().split('T')[0]; }
 
 function updateStreak() {
   const last = localStorage.getItem('lastVisitDate');
@@ -70,7 +52,7 @@ function updateStreak() {
   const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
 
   if (last === today) {
-    // already visited today, keep streak
+    // already counted today
   } else if (last === yesterday) {
     streak += 1;
   } else {
@@ -81,47 +63,75 @@ function updateStreak() {
   document.getElementById('streakCount').textContent = streak;
 }
 
+function applyLanguageToStaticUI() {
+  document.getElementById('langToggle').textContent = uiText[currentLang].toggleLabel;
+  document.querySelector('[data-i18n="streakLabel"]').textContent = uiText[currentLang].streakLabel;
+  document.getElementById('startBtn').textContent = uiText[currentLang].letsGo;
+  document.getElementById('emailPrompt').textContent = uiText[currentLang].emailPrompt;
+  document.getElementById('finishTitle').textContent = uiText[currentLang].finishTitle;
+  document.getElementById('sendEmailBtn').textContent = uiText[currentLang].sendResults;
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  localStorage.setItem('lang', currentLang);
+  applyLanguageToStaticUI();
+  if (currentQuestions.length > 0) renderQuestion();
+});
+
 async function loadManifest() {
-  const res = await fetch(QUESTIONS_PATH + "manifest.json");
-  manifest = await res.json();
-  const select = document.getElementById('dateSelect');
-  manifest.forEach(date => {
-    const opt = document.createElement('option');
-    opt.value = date; opt.textContent = date;
-    select.appendChild(opt);
-  });
-  select.addEventListener('change', e => loadDate(e.target.value));
-  loadDate(manifest[0]);
+  try {
+    const res = await fetch(QUESTIONS_PATH + "manifest.json");
+    manifest = await res.json();
+    const select = document.getElementById('dateSelect');
+    select.innerHTML = '';
+    manifest.forEach(date => {
+      const opt = document.createElement('option');
+      opt.value = date; opt.textContent = date;
+      select.appendChild(opt);
+    });
+    select.addEventListener('change', e => loadDate(e.target.value));
+    if (manifest.length > 0) loadDate(manifest[0]);
+  } catch (err) {
+    console.error('Failed to load manifest.json', err);
+    document.getElementById('cardArea').innerHTML = '<p style="color:white;">⚠️ Could not load questions. Check manifest.json.</p>';
+  }
 }
 
 async function loadDate(date) {
-  selectedDate = date;
-  const res = await fetch(QUESTIONS_PATH + date + ".json");
-  const data = await res.json();
-  currentQuestions = data.questions;
-  userAnswers = [];
-  qIndex = 0;
-  document.getElementById('finishScreen').style.display = 'none';
-  document.getElementById('cardArea').innerHTML = '';
-  document.getElementById('emailGate').style.display = 'block';
+  try {
+    selectedDate = date;
+    const res = await fetch(QUESTIONS_PATH + date + ".json");
+    const data = await res.json();
+    currentQuestions = data.questions;
+    userAnswers = [];
+    qIndex = 0;
+    document.getElementById('finishScreen').style.display = 'none';
+    document.getElementById('cardArea').innerHTML = '';
+    document.getElementById('emailGate').style.display = 'block';
+    updateProgress();
+  } catch (err) {
+    console.error('Failed to load question file for date: ' + date, err);
+  }
 }
 
 document.getElementById('startBtn').addEventListener('click', () => {
   const email = document.getElementById('studentEmail').value;
-  if (!email) return alert('Please enter your email first 📧');
+  if (!email) return alert(currentLang === 'en' ? 'Please enter your email first 📧' : '請先輸入你的電郵 📧');
   localStorage.setItem('studentEmail', email);
   document.getElementById('emailGate').style.display = 'none';
   renderQuestion();
 });
 
 function updateProgress() {
-  const pct = (qIndex / currentQuestions.length) * 100;
+  const total = currentQuestions.length || 10;
+  const pct = (qIndex / total) * 100;
   document.getElementById('progressBar').style.width = pct + '%';
   document.getElementById('progressLabel').textContent =
-    uiText[currentLang].questionOf(Math.min(qIndex+1, currentQuestions.length), currentQuestions.length);
+    uiText[currentLang].questionOf(Math.min(qIndex + 1, total), total);
 }
 
-unction renderQuestion() {
+function renderQuestion() {
   updateProgress();
   const container = document.getElementById('cardArea');
   container.innerHTML = '';
@@ -149,7 +159,7 @@ unction renderQuestion() {
   } else {
     const ta = document.createElement('textarea');
     ta.className = 'sq-input';
-    ta.placeholder = currentLang === 'en' ? 'Type your answer here...' : '在這裡輸入你的答案...';
+    ta.placeholder = uiText[currentLang].sqPlaceholder;
     card.appendChild(ta);
     const showBtn = document.createElement('button');
     showBtn.className = 'btn primary';
@@ -171,8 +181,8 @@ function selectMC(q, selectedIdx, optionsDiv, card) {
 
   optionsDiv.querySelectorAll('.option-btn').forEach((btn, i) => {
     btn.disabled = true;
-    if (i === q.correctIndex) btn.innerHTML = opts[i] + ' ✅', btn.classList.add('correct');
-    else if (i === selectedIdx) btn.classList.add('wrong');
+    if (i === q.correctIndex) { btn.innerHTML = opts[i] + ' ✅'; btn.classList.add('correct'); }
+    else if (i === selectedIdx) { btn.classList.add('wrong'); }
   });
 
   const isCorrect = selectedIdx === q.correctIndex;
@@ -217,6 +227,8 @@ function showFinish() {
 
 document.getElementById('sendEmailBtn').addEventListener('click', () => {
   const email = localStorage.getItem('studentEmail');
+  if (!email) return alert(currentLang === 'en' ? 'No email found. Please restart the quiz.' : '找不到電郵，請重新開始測驗。');
+
   let summary = `Results for ${selectedDate}\n\n`;
   userAnswers.forEach((a, i) => {
     summary += `Q${i+1}: ${a.question}\nYour answer: ${a.selected}\n`;
@@ -229,6 +241,7 @@ document.getElementById('sendEmailBtn').addEventListener('click', () => {
     .catch(err => { document.getElementById('statusMsg').textContent = '❌ Failed to send.'; console.error(err); });
 });
 
+// ---- INIT ----
 applyLanguageToStaticUI();
 updateStreak();
 loadManifest();
