@@ -1,18 +1,19 @@
-emailjs.init("YOUR_PUBLIC_KEY"); // <-- replace with your EmailJS public key
-
 const QUESTIONS_PATH = "questions/";
+const APPS_SCRIPT_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+
 let manifest = [];
 let currentQuestions = [];
 let userAnswers = [];
 let qIndex = 0;
 let selectedDate = null;
 let currentLang = localStorage.getItem('lang') || 'en';
+let currentIdToken = null;
+let currentUserEmail = null;
 
 const uiText = {
   en: {
     streakLabel: "day streak",
-    letsGo: "Let's go! 🚀",
-    emailPrompt: "📧 Enter your email to save your results:",
+    emailPrompt: "🔐 Sign in with your Google account to start:",
     finishTitle: "🎉 Nice work!",
     sendResults: "Send my results 📩",
     showAnswer: "Show Answer 👀",
@@ -23,12 +24,13 @@ const uiText = {
     sqPlaceholder: "Type your answer here...",
     questionOf: (i, total) => `Question ${i} of ${total}`,
     scoreText: (correct, total) => `You got ${correct} out of ${total} right today!`,
-    toggleLabel: "中文"
+    signedInAs: (email) => `Signed in as: ${email}`,
+    toggleLabel: "中文",
+    sending: "Sending... ⏳"
   },
   zh: {
     streakLabel: "天連續紀錄",
-    letsGo: "開始吧！🚀",
-    emailPrompt: "📧 請輸入你的電郵以儲存成績：",
+    emailPrompt: "🔐 請使用你的 Google 帳戶登入以開始：",
     finishTitle: "🎉 做得好！",
     sendResults: "傳送我的成績 📩",
     showAnswer: "顯示答案 👀",
@@ -39,7 +41,9 @@ const uiText = {
     sqPlaceholder: "在這裡輸入你的答案...",
     questionOf: (i, total) => `第 ${i} 題，共 ${total} 題`,
     scoreText: (correct, total) => `你今天答對了 ${correct} / ${total} 題！`,
-    toggleLabel: "EN"
+    signedInAs: (email) => `已登入：${email}`,
+    toggleLabel: "EN",
+    sending: "傳送中... ⏳"
   }
 };
 
@@ -50,14 +54,9 @@ function updateStreak() {
   let streak = parseInt(localStorage.getItem('streakCount') || '0');
   const today = todayStr();
   const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-
-  if (last === today) {
-    // already counted today
-  } else if (last === yesterday) {
-    streak += 1;
-  } else {
-    streak = 1;
-  }
+  if (last === today) {} 
+  else if (last === yesterday) { streak += 1; } 
+  else { streak = 1; }
   localStorage.setItem('lastVisitDate', today);
   localStorage.setItem('streakCount', streak);
   document.getElementById('streakCount').textContent = streak;
@@ -66,7 +65,6 @@ function updateStreak() {
 function applyLanguageToStaticUI() {
   document.getElementById('langToggle').textContent = uiText[currentLang].toggleLabel;
   document.querySelector('[data-i18n="streakLabel"]').textContent = uiText[currentLang].streakLabel;
-  document.getElementById('startBtn').textContent = uiText[currentLang].letsGo;
   document.getElementById('emailPrompt').textContent = uiText[currentLang].emailPrompt;
   document.getElementById('finishTitle').textContent = uiText[currentLang].finishTitle;
   document.getElementById('sendEmailBtn').textContent = uiText[currentLang].sendResults;
@@ -78,6 +76,17 @@ document.getElementById('langToggle').addEventListener('click', () => {
   applyLanguageToStaticUI();
   if (currentQuestions.length > 0) renderQuestion();
 });
+
+// ---- GOOGLE SIGN-IN CALLBACK ----
+function handleCredentialResponse(response) {
+  currentIdToken = response.credential;
+  // Decode just for DISPLAY purposes (not trusted for sending — backend re-verifies)
+  const payload = JSON.parse(atob(currentIdToken.split('.')[1]));
+  currentUserEmail = payload.email;
+
+  document.getElementById('emailGate').style.display = 'none';
+  renderQuestion();
+}
 
 async function loadManifest() {
   try {
@@ -94,7 +103,7 @@ async function loadManifest() {
     if (manifest.length > 0) loadDate(manifest[0]);
   } catch (err) {
     console.error('Failed to load manifest.json', err);
-    document.getElementById('cardArea').innerHTML = '<p style="color:white;">⚠️ Could not load questions. Check manifest.json.</p>';
+    document.getElementById('cardArea').innerHTML = '<p style="color:white;">⚠️ Could not load questions.</p>';
   }
 }
 
@@ -108,20 +117,15 @@ async function loadDate(date) {
     qIndex = 0;
     document.getElementById('finishScreen').style.display = 'none';
     document.getElementById('cardArea').innerHTML = '';
-    document.getElementById('emailGate').style.display = 'block';
+    document.getElementById('statusMsg').textContent = '';
+    // Only show sign-in gate if not already signed in this session
+    document.getElementById('emailGate').style.display = currentIdToken ? 'none' : 'block';
+    if (currentIdToken) renderQuestion();
     updateProgress();
   } catch (err) {
     console.error('Failed to load question file for date: ' + date, err);
   }
 }
-
-document.getElementById('startBtn').addEventListener('click', () => {
-  const email = document.getElementById('studentEmail').value;
-  if (!email) return alert(currentLang === 'en' ? 'Please enter your email first 📧' : '請先輸入你的電郵 📧');
-  localStorage.setItem('studentEmail', email);
-  document.getElementById('emailGate').style.display = 'none';
-  renderQuestion();
-});
 
 function updateProgress() {
   const total = currentQuestions.length || 10;
@@ -222,12 +226,13 @@ function showFinish() {
   const correctCount = userAnswers.filter(a => a.isCorrect === true).length;
   document.getElementById('finishScreen').style.display = 'block';
   document.getElementById('scoreText').textContent = uiText[currentLang].scoreText(correctCount, currentQuestions.length);
+  document.getElementById('signedInAs').textContent = uiText[currentLang].signedInAs(currentUserEmail);
   confetti({ particleCount: 120, spread: 90, origin: { y: 0.6 } });
 }
 
+// ---- SEND EMAIL: sends the ID TOKEN, not a typed email ----
 document.getElementById('sendEmailBtn').addEventListener('click', () => {
-  const email = localStorage.getItem('studentEmail');
-  if (!email) return alert(currentLang === 'en' ? 'No email found. Please restart the quiz.' : '找不到電郵，請重新開始測驗。');
+  if (!currentIdToken) return alert(currentLang === 'en' ? 'Please sign in again.' : '請重新登入。');
 
   let summary = `Results for ${selectedDate}\n\n`;
   userAnswers.forEach((a, i) => {
@@ -236,12 +241,31 @@ document.getElementById('sendEmailBtn').addEventListener('click', () => {
     summary += `Correct/Model Answer: ${a.correctAnswer}\nExplanation: ${a.explanation}\n\n`;
   });
 
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', { to_email: email, message: summary })
-    .then(() => document.getElementById('statusMsg').textContent = '✅ Sent! Check your inbox.')
-    .catch(err => { document.getElementById('statusMsg').textContent = '❌ Failed to send.'; console.error(err); });
+  const btn = document.getElementById('sendEmailBtn');
+  const statusMsg = document.getElementById('statusMsg');
+  btn.disabled = true;
+  btn.textContent = uiText[currentLang].sending;
+
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    body: JSON.stringify({ idToken: currentIdToken, date: selectedDate, summary: summary })
+  })
+  .then(res => res.json())
+  .then(data => {
+    statusMsg.textContent = data.status === 'success'
+      ? (currentLang === 'en' ? '✅ Sent! Check your inbox.' : '✅ 已傳送！請檢查你的電郵。')
+      : (currentLang === 'en' ? '❌ Failed to send.' : '❌ 傳送失敗。');
+  })
+  .catch(err => {
+    statusMsg.textContent = currentLang === 'en' ? '❌ Failed to send.' : '❌ 傳送失敗。';
+    console.error(err);
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = uiText[currentLang].sendResults;
+  });
 });
 
-// ---- INIT ----
 applyLanguageToStaticUI();
 updateStreak();
 loadManifest();
