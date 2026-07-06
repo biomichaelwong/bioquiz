@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 <div class="app">
@@ -29,14 +29,18 @@
   <div id="cardArea"></div>
 
   <div id="emailGate" class="card">
-    <p id="emailPrompt">📧 Enter your email to save your results:</p>
-    <input type="email" id="studentEmail" placeholder="you@example.com">
-    <button class="btn primary" id="startBtn">Let's go! 🚀</button>
+    <p id="emailPrompt">🔐 Sign in with your Google account to start:</p>
+    <div id="g_id_onload"
+         data-client_id="YOUR_CLIENT_ID.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse">
+    </div>
+    <div class="g_id_signin" data-type="standard" data-size="large" data-width="280"></div>
   </div>
 
   <div id="finishScreen" class="card" style="display:none;">
     <h2 id="finishTitle">🎉 Nice work!</h2>
     <p id="scoreText"></p>
+    <p id="signedInAs" style="color:#888; font-size:13px;"></p>
     <button class="btn primary" id="sendEmailBtn">Send my results 📩</button>
     <p id="statusMsg"></p>
   </div>
