@@ -1,0 +1,130 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Baloo 2', sans-serif;
+  background: linear-gradient(160deg, #a18cd1, #fbc2eb);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+.app { width: 100%; max-width: 480px; }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.streak {
+  background: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+#dateSelect {
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: none;
+  font-family: inherit;
+}
+
+.progress-wrap {
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  transition: width 0.3s ease;
+}
+.progress-label {
+  color: white;
+  font-size: 13px;
+  margin: 0 0 12px 4px;
+  font-weight: 700;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  margin-bottom: 16px;
+  animation: pop 0.25s ease;
+}
+@keyframes pop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.q-text { font-size: 19px; font-weight: 700; margin-bottom: 14px; color: #333; }
+
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option-btn {
+  padding: 14px;
+  font-size: 16px;
+  font-family: inherit;
+  border-radius: 14px;
+  border: 2px solid #eee;
+  background: #fafafa;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.15s;
+}
+.option-btn:active { transform: scale(0.98); }
+.option-btn.correct { background: #c8f7c5; border-color: #4caf50; font-weight: 700; }
+.option-btn.wrong { background: #f8d7da; border-color: #dc3545; }
+
+textarea.sq-input {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 2px solid #eee;
+  font-family: inherit;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.answer-box {
+  margin-top: 14px;
+  padding: 14px;
+  background: #f1f9ff;
+  border-left: 5px solid #007bff;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 10px;
+}
+.btn.primary { background: #6c5ce7; color: white; }
+.btn.primary:active { transform: scale(0.98); }
+.btn.next { background: #00b894; color: white; }
+
+input[type=email] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  font-family: inherit;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+#finishScreen { text-align: center; }
