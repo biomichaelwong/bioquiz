@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>🔥 Daily Quiz Streak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <div class="topbar">
+    <div class="streak">🔥 <span id="streakCount">0</span> day streak</div>
+    <select id="dateSelect"></select>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  <p class="progress-label" id="progressLabel">Question 1 of 10</p>
+
+  <div id="cardArea"></div>
+
+  <div id="emailGate" class="card">
+    <p>📧 Enter your email to save your results:</p>
+    <input type="email" id="studentEmail" placeholder="you@example.com">
+    <button class="btn primary" id="startBtn">Let's go! 🚀</button>
+  </div>
+
+  <div id="finishScreen" class="card" style="display:none;">
+    <h2>🎉 Nice work!</h2>
+    <p id="scoreText"></p>
+    <button class="btn primary" id="sendEmailBtn">Send my results 📩</button>
+    <p id="statusMsg"></p>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
