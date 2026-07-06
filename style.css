@@ -16,6 +16,16 @@ body {
   align-items: center;
   margin-bottom: 10px;
 }
+.lang-btn {
+  background: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 .streak {
   background: white;
   padding: 8px 14px;
