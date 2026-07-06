@@ -1,17 +1,16 @@
 {
-  "questions": [
-    {
-      "type": "mc",
-      "question": "What is the capital of France?",
-      "options": ["Berlin", "Paris", "Madrid", "Rome"],
-      "correctIndex": 1,
-      "explanation": "Paris has been the capital of France since the 10th century."
-    },
-    {
-      "type": "sq",
-      "question": "Briefly explain what photosynthesis is.",
-      "answer": "The process by which plants convert light energy into chemical energy.",
-      "explanation": "It occurs in chloroplasts and requires sunlight, water, and CO2."
-    }
-  ]
+  "type": "mc",
+  "question": {
+    "en": "What is the capital of France?",
+    "zh": "法國的首都是甚麼？"
+  },
+  "options": {
+    "en": ["Berlin", "Paris", "Madrid", "Rome"],
+    "zh": ["柏林", "巴黎", "馬德里", "羅馬"]
+  },
+  "correctIndex": 1,
+  "explanation": {
+    "en": "Paris has been the capital of France since the 10th century.",
+    "zh": "巴黎自10世紀起一直是法國的首都。"
+  }
 }
