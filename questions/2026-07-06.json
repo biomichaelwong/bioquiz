@@ -1,16 +1,23 @@
 {
-  "type": "mc",
-  "question": {
-    "en": "What is the capital of France?",
-    "zh": "法國的首都是甚麼？"
-  },
-  "options": {
-    "en": ["Berlin", "Paris", "Madrid", "Rome"],
-    "zh": ["柏林", "巴黎", "馬德里", "羅馬"]
-  },
-  "correctIndex": 1,
-  "explanation": {
-    "en": "Paris has been the capital of France since the 10th century.",
-    "zh": "巴黎自10世紀起一直是法國的首都。"
-  }
+  "questions": [
+    {
+      "type": "mc",
+      "question_en": "What is the capital of France?",
+      "question_zh": "法國的首都是哪裡？",
+      "options_en": ["Berlin", "Paris", "Madrid", "Rome"],
+      "options_zh": ["柏林", "巴黎", "馬德里", "羅馬"],
+      "correctIndex": 1,
+      "explanation_en": "Paris has been the capital of France since the 10th century.",
+      "explanation_zh": "巴黎自十世紀以來一直是法國的首都。"
+    },
+    {
+      "type": "sq",
+      "question_en": "Briefly explain what photosynthesis is.",
+      "question_zh": "簡述什麼是光合作用。",
+      "answer_en": "The process by which plants convert light energy into chemical energy.",
+      "answer_zh": "植物將光能轉化為化學能的過程。",
+      "explanation_en": "It occurs in chloroplasts and requires sunlight, water, and CO2.",
+      "explanation_zh": "此過程發生在葉綠體中，需要陽光、水和二氧化碳。"
+    }
+  ]
 }
