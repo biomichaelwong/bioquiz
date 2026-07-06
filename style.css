@@ -1,7 +1,7 @@
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Baloo 2', 'Noto Sans TC', sans-serif;
   background: linear-gradient(160deg, #a18cd1, #fbc2eb);
   min-height: 100vh;
   display: flex;
@@ -15,6 +15,18 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.topbar-right { display: flex; gap: 8px; align-items: center; }
+.streak {
+  background: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
 }
 .lang-btn {
   background: white;
@@ -24,14 +36,6 @@ body {
   font-weight: 700;
   font-family: inherit;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-.streak {
-  background: white;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 #dateSelect {
@@ -48,18 +52,8 @@ body {
   overflow: hidden;
   margin-bottom: 4px;
 }
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: #4caf50;
-  transition: width 0.3s ease;
-}
-.progress-label {
-  color: white;
-  font-size: 13px;
-  margin: 0 0 12px 4px;
-  font-weight: 700;
-}
+.progress-bar { height: 100%; width: 0%; background: #4caf50; transition: width 0.3s ease; }
+.progress-label { color: white; font-size: 13px; margin: 0 0 12px 4px; font-weight: 700; }
 
 .card {
   background: white;
@@ -69,10 +63,7 @@ body {
   margin-bottom: 16px;
   animation: pop 0.25s ease;
 }
-@keyframes pop {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+@keyframes pop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
 .q-text { font-size: 19px; font-weight: 700; margin-bottom: 14px; color: #333; }
 
