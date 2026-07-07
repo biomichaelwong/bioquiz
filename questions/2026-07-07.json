@@ -1,0 +1,314 @@
+{
+  "questions": [
+    {
+      "page_reference": 2,
+      "type": "mc",
+      "question_en": "How many different triplet codes can be produced from the four bases in DNA?",
+      "question_zh": "DNA 中的四種鹼基可以組成多少個不同的三聯體密碼？",
+      "explanation_en": "Since there are four possibilities for each position in a triplet code, the total number of combinations is 4 × 4 × 4 = 64.",
+      "explanation_zh": "三聯體密碼由三個鹼基組成，而鹼基有四種，因此可能組合的總數是 4 × 4 × 4 = 64。",
+      "correctIndex": 3,
+      "options_en": [
+        "12",
+        "16",
+        "20",
+        "64"
+      ],
+      "options_zh": [
+        "12",
+        "16",
+        "20",
+        "64"
+      ]
+    },
+    {
+      "page_reference": 2,
+      "type": "sq",
+      "question_en": "What is the function of the three triplet codes that do not code for any amino acids?",
+      "question_zh": "遺傳密碼中有三個不為任何氨基酸編碼的密碼，它們的功能是甚麼？",
+      "explanation_en": "The textbook states that these three codes act as stop signals marking the end of the polypeptide-encoding base sequence.",
+      "explanation_zh": "課本指出這三個密碼作為終止信號，標示為多肽編碼的鹼基序列的終結。",
+      "answer_en": "They act as stop signals that mark the end of the base sequence encoding a polypeptide.",
+      "answer_zh": "它們作為終止信號，標示為多肽編碼的鹼基序列的終結。"
+    },
+    {
+      "page_reference": 3,
+      "type": "mc",
+      "question_en": "Which of the following describes how the genetic code is read on a DNA strand?",
+      "question_zh": "下列哪一項描述了 DNA 鏈上遺傳密碼的解讀方式？",
+      "explanation_en": "The textbook emphasizes that there are no gaps between adjacent triplet codes and they are read in a non-overlapping manner.",
+      "explanation_zh": "課本強調 DNA 鏈上各三聯體密碼之間沒有空隙，而且是以非重叠的方式解讀。",
+      "correctIndex": 1,
+      "options_en": [
+        "Overlapping with gaps",
+        "Non-overlapping without gaps",
+        "Overlapping without gaps",
+        "Non-overlapping with gaps"
+      ],
+      "options_zh": [
+        "以重叠方式解讀，有空隙",
+        "以非重叠方式解讀，沒有空隙",
+        "以重叠方式解讀，沒有空隙",
+        "以非重叠方式解讀，有空隙"
+      ]
+    },
+    {
+      "page_reference": 3,
+      "type": "sq",
+      "question_en": "What does it mean when the genetic code is described as \"universal\"?",
+      "question_zh": "遺傳密碼被形容為「全適的」，這是甚麼意思？",
+      "explanation_en": "The textbook states that the same triplet code codes for the same amino acid in all organisms, demonstrating its universal nature.",
+      "explanation_zh": "課本解釋同一個三聯體密碼在所有生物中都為同一種氨基酸編碼，這說明了遺傳密碼的全適性。",
+      "answer_en": "It means that the same triplet code specifies the same amino acid in all organisms.",
+      "answer_zh": "這意味着同一個三聯體密碼在所有生物中都為同一種氨基酸編碼。"
+    },
+    {
+      "page_reference": 4,
+      "type": "mc",
+      "question_en": "In human cells, where do transcription and translation respectively take place?",
+      "question_zh": "在人體細胞中，轉錄和轉譯分別在哪裏進行？",
+      "explanation_en": "Transcription copies genetic information to mRNA inside the nucleus, while translation makes a polypeptide in the cytoplasm.",
+      "explanation_zh": "轉錄在細胞核內將遺傳信息複製到 mRNA，而轉譯則在細胞質內合成多肽。",
+      "correctIndex": 2,
+      "options_en": [
+        "Nucleus and Nucleus",
+        "Cytoplasm and Cytoplasm",
+        "Nucleus and Cytoplasm",
+        "Cytoplasm and Nucleus"
+      ],
+      "options_zh": [
+        "細胞核 和 細胞核",
+        "細胞質 和 細胞質",
+        "細胞核 和 細胞質",
+        "細胞質 和 細胞核"
+      ]
+    },
+    {
+      "page_reference": 4,
+      "type": "sq",
+      "question_en": "During transcription, what is the specific role of the template strand?",
+      "question_zh": "在轉錄過程中，模板鏈的具體角色是甚麼？",
+      "explanation_en": "During transcription, only one of the DNA strands is used as a template to manufacture mRNA, and this strand is called the template strand.",
+      "explanation_zh": "轉錄過程中，只有其中一條 DNA 鏈會被用作製造 mRNA 的模板，這條鏈被稱為模板鏈。",
+      "answer_en": "The template strand is the specific DNA strand used as a template to make mRNA.",
+      "answer_zh": "模板鏈是被用作製造 mRNA 模板的那一條 DNA 鏈。"
+    },
+    {
+      "page_reference": 5,
+      "type": "mc",
+      "question_en": "Which enzyme is responsible for catalysing the joining of free ribonucleotides to form mRNA during transcription?",
+      "question_zh": "在轉錄過程中，哪一種酶負責催化游離的核糖核苷酸結合以產生 mRNA？",
+      "explanation_en": "The text states that RNA polymerase catalyses the joining of adjacent ribonucleotides to form an mRNA molecule.",
+      "explanation_zh": "課文指出是 RNA 聚合酶催化相鄰的核糖核苷酸結合，從而產生 mRNA。",
+      "correctIndex": 1,
+      "options_en": [
+        "DNA polymerase",
+        "RNA polymerase",
+        "Digestive enzyme",
+        "Ribosome"
+      ],
+      "options_zh": [
+        "DNA 聚合酶",
+        "RNA 聚合酶",
+        "消化酶",
+        "核糖體"
+      ]
+    },
+    {
+      "page_reference": 5,
+      "type": "sq",
+      "question_en": "How does the base sequence of the newly formed mRNA differ from the DNA coding strand?",
+      "question_zh": "新形成的 mRNA 鹼基序列與 DNA 的編碼鏈有甚麼唯一的分別？",
+      "explanation_en": "The textbook notes that the mRNA sequence is the same as the coding strand except that mRNA has U (uracil) instead of T (thymine).",
+      "explanation_zh": "課本提到 mRNA 的鹼基序列與編碼鏈相同，唯一分別是 mRNA 中以 U 取代了 T。",
+      "answer_en": "The sequence is the same, except that mRNA has the base U instead of T.",
+      "answer_zh": "兩者的鹼基序列相同，唯一分別是 mRNA 中以鹼基 U 取代了鹼基 T。"
+    },
+    {
+      "page_reference": 6,
+      "type": "mc",
+      "question_en": "Which part of a tRNA molecule pairs with the codon on mRNA during translation?",
+      "question_zh": "在轉譯過程中，tRNA 分子上的哪個部分會與 mRNA 上的密碼子結合？",
+      "explanation_en": "Each tRNA has an anticodon consisting of three bases that pairs with a codon on mRNA during translation.",
+      "explanation_zh": "每個 tRNA 帶有一個由三個鹼基組成的反密碼子，在轉譯過程中它會與 mRNA 上的密碼子結合。",
+      "correctIndex": 1,
+      "options_en": [
+        "Amino acid binding site",
+        "Anticodon",
+        "Ribosome",
+        "Codon"
+      ],
+      "options_zh": [
+        "與氨基酸結合的位置",
+        "反密碼子",
+        "核糖體",
+        "密碼子"
+      ]
+    },
+    {
+      "page_reference": 6,
+      "type": "sq",
+      "question_en": "What is the main function of messenger RNA (mRNA) in protein synthesis?",
+      "question_zh": "信使 RNA (mRNA) 在蛋白質合成中的主要功能是甚麼？",
+      "explanation_en": "mRNA carries the genetic instructions from the DNA in the nucleus to the cytoplasm to assemble polypeptides.",
+      "explanation_zh": "mRNA 負責將合成多肽的指令從細胞核內的 DNA 攜帶到細胞質。",
+      "answer_en": "It carries instructions for assembling polypeptides from DNA in the nucleus to the cytoplasm.",
+      "answer_zh": "它把合成多肽的指令從細胞核內的 DNA 攜帶到細胞質。"
+    },
+    {
+      "page_reference": 7,
+      "type": "mc",
+      "question_en": "During translation, what type of bond joins the adjacent amino acids together?",
+      "question_zh": "在轉譯過程中，相鄰的氨基酸是由甚麼化學鍵連接起來的？",
+      "explanation_en": "The diagram and text explicitly state that the two adjacent amino acids are joined by a peptide bond.",
+      "explanation_zh": "圖解和課文明確指出，兩個相鄰的氨基酸是由肽鍵連接起來的。",
+      "correctIndex": 0,
+      "options_en": [
+        "Peptide bond",
+        "Hydrogen bond",
+        "Oxygen bond",
+        "Nitrogen bond"
+      ],
+      "options_zh": [
+        "肽鍵",
+        "氫鍵",
+        "氧鍵",
+        "氮鍵"
+      ]
+    },
+    {
+      "page_reference": 7,
+      "type": "sq",
+      "question_en": "What happens when the ribosome reaches a stop codon during translation?",
+      "question_zh": "在轉譯過程中，當核糖體遇上終止密碼子時會發生甚麼事？",
+      "explanation_en": "The text explains that reaching a stop codon is the signal for the translation to end, and the formed polypeptide is released.",
+      "explanation_zh": "課文解釋遇上終止密碼子是轉譯結束的信號，形成的多肽會離開核糖體。",
+      "answer_en": "The newly formed polypeptide is released from the ribosome.",
+      "answer_zh": "所形成的多肽會離開核糖體（釋放出來）。"
+    },
+    {
+      "page_reference": 8,
+      "type": "mc",
+      "question_en": "What is the usual fate of proteins synthesized at ribosomes on the rough endoplasmic reticulum?",
+      "question_zh": "在粗糙內質網表面的核糖體合成的蛋白質，通常的去向是甚麼？",
+      "explanation_en": "Proteins made on the rough ER are typically secreted outside the cell (like hormones) or embedded in the cell membrane.",
+      "explanation_zh": "在粗糙內質網合成的蛋白質大多數會分泌出細胞外（如激素）或嵌入細胞膜中。",
+      "correctIndex": 1,
+      "options_en": [
+        "They remain in the cytoplasm to act as intracellular enzymes.",
+        "They are secreted outside the cell or embedded in the cell membrane.",
+        "They are transported into the nucleus to act as RNA polymerase.",
+        "They break down to become free ribonucleotides."
+      ],
+      "options_zh": [
+        "它們留在細胞質中作為細胞內的酶。",
+        "它們會分泌出細胞外或嵌入細胞膜中。",
+        "它們被運送到細胞核內作為 RNA 聚合酶。",
+        "它們會分解成游離的核糖核苷酸。"
+      ]
+    },
+    {
+      "page_reference": 8,
+      "type": "sq",
+      "question_en": "Why can a large number of polypeptides be synthesized in a short period of time from a single mRNA molecule?",
+      "question_zh": "為甚麼在短時間內可以從單一條 mRNA 分子合成大量多肽？",
+      "explanation_en": "A single mRNA molecule can have many ribosomes moving along it simultaneously, each synthesizing a polypeptide.",
+      "explanation_zh": "同一條 mRNA 分子上可以同時有多個核糖體在移動並進行轉譯，因此能快速合成大量多肽。",
+      "answer_en": "Because many ribosomes can move along the same mRNA molecule at the same time to repeatedly translate it.",
+      "answer_zh": "因為多個核糖體可以同時在同一條 mRNA 分子上移動並重複進行轉譯。"
+    },
+    {
+      "page_reference": 9,
+      "type": "mc",
+      "question_en": "Which of the following is a characteristic of epigenetic modifications?",
+      "question_zh": "下列哪一項是表觀遺傳修飾的特徵？",
+      "explanation_en": "Epigenetics involves modifying DNA to regulate gene expression, affecting the phenotype without altering the genotype.",
+      "explanation_zh": "表觀遺傳學涉及修飾 DNA 來調節基因表達，能在不改變基因型的情況下影響表現型。",
+      "correctIndex": 2,
+      "options_en": [
+        "They change the fundamental genotype of the individual.",
+        "They have no impact on the individual's phenotype.",
+        "They regulate gene expression without changing the genotype.",
+        "They only occur in gametes and are not found in other cells."
+      ],
+      "options_zh": [
+        "它們會改變個體基本的基因型。",
+        "它們對個體的表現型沒有任何影響。",
+        "它們在不改變基因型的情況下調節基因表達。",
+        "它們只在配子中發生，不存在於其他細胞中。"
+      ]
+    },
+    {
+      "page_reference": 9,
+      "type": "sq",
+      "question_en": "Why do white blood cells and neurones produce different proteins despite carrying the same genetic information?",
+      "question_zh": "為甚麼白血細胞和神經元攜帶相同的遺傳信息，卻會製造不同的蛋白質？",
+      "explanation_en": "Different cell types express different sets of genes, allowing them to produce different proteins and perform specific functions.",
+      "explanation_zh": "不同種類的細胞會表達不同的基因，這使它們製造不同的蛋白質以擔當不同的功能。",
+      "answer_en": "Because different sets of genes are expressed in different types of cells.",
+      "answer_zh": "因為在不同種類的細胞中，有不同組別的基因被表達。"
+    },
+    {
+      "page_reference": 10,
+      "type": "mc",
+      "question_en": "According to the learning example, how does the antibiotic tetracycline cause the death of bacteria?",
+      "question_zh": "根據例題解說，抗生素四環素是怎樣導致細菌死亡的？",
+      "explanation_en": "Tetracycline binds to the ribosomes in bacteria, which prevents translation/protein synthesis, leading to the lack of essential proteins for survival.",
+      "explanation_zh": "四環素與細菌內的核糖體結合，阻礙了轉譯／蛋白質合成，使細菌無法製造生存必需的蛋白質而死亡。",
+      "correctIndex": 1,
+      "options_en": [
+        "It breaks down the bacterial cell wall.",
+        "It binds to ribosomes, preventing translation and protein synthesis.",
+        "It destroys the bacterial DNA directly.",
+        "It inhibits transcription in the nucleus."
+      ],
+      "options_zh": [
+        "它破壞了細菌的細胞壁。",
+        "它與核糖體結合，阻礙轉譯和蛋白質合成。",
+        "它直接破壞了細菌的 DNA。",
+        "它抑制了細胞核內的轉錄過程。"
+      ]
+    },
+    {
+      "page_reference": 10,
+      "type": "sq",
+      "question_en": "How can a change in the base sequence of a gene cause bacteria to become resistant to tetracycline?",
+      "question_zh": "基因的鹼基序列發生變化怎樣導致細菌對四環素產生抗性？",
+      "explanation_en": "A sequence change alters the shape of the synthesized membrane protein, which then prevents the tetracycline from entering the bacterial cell.",
+      "explanation_zh": "鹼基序列的變化會改變膜蛋白的形狀，這可能導致四環素無法進入細胞內。",
+      "answer_en": "The change alters the shape of the membrane protein, which prevents tetracycline from entering the cell.",
+      "answer_zh": "鹼基序列變化會改變膜蛋白的形狀，從而令四環素無法進入細胞。"
+    },
+    {
+      "page_reference": 11,
+      "type": "mc",
+      "question_en": "What is the relationship between the base sequence on the DNA template strand and the mRNA codons?",
+      "question_zh": "DNA 模板鏈上的鹼基序列與 mRNA 的密碼子有甚麼關係？",
+      "explanation_en": "The skill builder graphic clearly shows that the mRNA codons are complementary to the base sequence on the DNA template strand.",
+      "explanation_zh": "「技巧教室」的圖表清楚顯示，mRNA 密碼子與 DNA 模板鏈上的鹼基序列是互補的。",
+      "correctIndex": 1,
+      "options_en": [
+        "They are entirely identical.",
+        "They are complementary.",
+        "They have no specific relationship.",
+        "They only share identical start and stop codons."
+      ],
+      "options_zh": [
+        "它們完全相同。",
+        "它們是互補的。",
+        "它們之間沒有特定的關係。",
+        "它們只擁有相同的起始和終止密碼子。"
+      ]
+    },
+    {
+      "page_reference": 12,
+      "type": "sq",
+      "question_en": "Compare the raw materials used in transcription and translation as described in the summary table.",
+      "question_zh": "根據總結表，比較轉錄和轉譯過程中所使用的原料。",
+      "explanation_en": "The summary table specifies that transcription uses ribonucleotides to make mRNA, while translation uses amino acids to make polypeptides.",
+      "explanation_zh": "總結表列明轉錄的原料是核糖核苷酸，而轉譯的原料則是氨基酸。",
+      "answer_en": "The raw materials for transcription are ribonucleotides, while the raw materials for translation are amino acids.",
+      "answer_zh": "轉錄的原料是核糖核苷酸，而轉譯的原料是氨基酸。"
+    }
+  ]
+}
