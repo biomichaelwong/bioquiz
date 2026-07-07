@@ -1,0 +1,314 @@
+{
+  "questions": [
+    {
+      "page_reference": 2,
+      "type": "mc",
+      "question_en": "What happens if the number of deleted or inserted bases in a gene is not a multiple of three?",
+      "question_zh": "如果基因中缺失或插入的鹼基數目不是三的倍數，會發生甚麼情況？",
+      "explanation_en": "According to the textbook, deleting or inserting bases that are not a multiple of three will shift the reading frame, altering the whole amino acid sequence after the point of mutation.",
+      "explanation_zh": "根據課本，缺失或插入的鹼基數目如果不是三的倍數，會轉移（改變）閱讀框，令突變位置之後的氨基酸序列完全改變。",
+      "correctIndex": 2,
+      "options_en": [
+        "It changes only one amino acid in the polypeptide.",
+        "It causes the entire chromosome to break apart.",
+        "It shifts the reading frame and alters the subsequent amino acid sequence.",
+        "It has no effect on the protein produced."
+      ],
+      "options_zh": [
+        "它只會改變多肽中的一個氨基酸。",
+        "它會導致整條染色體斷裂。",
+        "它會轉移閱讀框，並改變其後的氨基酸序列。",
+        "它對產生的蛋白質沒有影響。"
+      ]
+    },
+    {
+      "page_reference": 2,
+      "type": "sq",
+      "question_en": "Why is the position of the start codon important during translation?",
+      "question_zh": "在轉譯過程中，為甚麼起始密碼子的位置十分重要？",
+      "explanation_en": "The start codon determines the starting point for reading the triplets, ensuring the subsequent bases are grouped correctly.",
+      "explanation_zh": "起始密碼子決定了解讀三聯體密碼的起點，確保隨後的鹼基能正確地分組解讀。",
+      "answer_en": "Translation begins at the start codon and reads in successive groups of three, so its position ensures the mRNA is read in the correct reading frame.",
+      "answer_zh": "由於轉譯是從起始密碼子開始以三個鹼基為一組連續讀取，因此其位置有助確保細胞以正確的閱讀框讀取 mRNA。"
+    },
+    {
+      "page_reference": 3,
+      "type": "mc",
+      "question_en": "In sickle-cell anaemia, a base substitution causes which amino acid to be replaced by valine?",
+      "question_zh": "在鐮狀細胞性貧血中，鹼基取代導致哪一種氨基酸被纈氨酸所取替？",
+      "explanation_en": "The textbook explicitly states that the substitution replaces glutamic acid with valine in the polypeptide chain.",
+      "explanation_zh": "課本明確指出，取代突變導致多肽中的穀氨酸由纈氨酸取替。",
+      "correctIndex": 1,
+      "options_en": [
+        "Glutamine",
+        "Glutamic acid",
+        "Phenylalanine",
+        "Histidine"
+      ],
+      "options_zh": [
+        "穀酰胺",
+        "穀氨酸",
+        "苯丙氨酸",
+        "組氨酸"
+      ]
+    },
+    {
+      "page_reference": 3,
+      "type": "sq",
+      "question_en": "How does the abnormal haemoglobin in sickle-cell anaemia affect red blood cells when oxygen levels are low?",
+      "question_zh": "當氧濃度低時，鐮狀細胞性貧血患者體內的異常血紅蛋白會怎樣影響紅血細胞？",
+      "explanation_en": "The textbook explains that abnormal haemoglobin polymerizes into long fibres under low oxygen, physically altering the cell shape.",
+      "explanation_zh": "課本解釋在低氧情況下，異常的血紅蛋白會聚集成纖維，從物理上改變了細胞的形狀。",
+      "answer_en": "The abnormal haemoglobin molecules stick together to form long fibres, which distort the shape of red blood cells, causing them to become sickle-shaped.",
+      "answer_zh": "異常的血紅蛋白分子會聚集起來組成長長的纖維，使紅血細胞的形狀扭曲，呈鐮狀。"
+    },
+    {
+      "page_reference": 4,
+      "type": "mc",
+      "question_en": "Which type of chromosome mutation occurs when a segment of the chromosome is repeated, causing a gain of genes?",
+      "question_zh": "當一段染色體重複出現並導致基因數目增加時，這屬於哪一種染色體突變？",
+      "explanation_en": "Duplication is defined in the text as a segment of the chromosome being repeated, causing a gain of genes.",
+      "explanation_zh": "課文中對「複製」的定義是一段染色體重複出現，導致基因數目增加。",
+      "correctIndex": 1,
+      "options_en": [
+        "Deletion",
+        "Duplication",
+        "Inversion",
+        "Translocation"
+      ],
+      "options_zh": [
+        "缺失",
+        "複製",
+        "倒位",
+        "易位"
+      ]
+    },
+    {
+      "page_reference": 4,
+      "type": "sq",
+      "question_en": "What commonly causes a change in chromosome structure during meiotic cell division?",
+      "question_zh": "在減數細胞分裂期間，甚麼情況通常會導致染色體結構改變？",
+      "explanation_en": "Structural changes in chromosomes can happen when errors occur during the crossing over process in meiosis.",
+      "explanation_zh": "當減數分裂中的染色體互換過程出現錯誤時，便可能使染色體的結構改變。",
+      "answer_en": "It can be brought about by an error occurring during the crossing over of chromosomes.",
+      "answer_zh": "如果染色體互換時出現錯誤，便可能使染色體的結構改變。"
+    },
+    {
+      "page_reference": 5,
+      "type": "mc",
+      "question_en": "What is the resulting number of chromosomes in all cells of a human individual if a gamete with an extra chromosome fuses with a normal gamete?",
+      "question_zh": "如果載有額外一條染色體的配子與正常配子融合，所發育而成的人類個體其所有細胞會有多少條染色體？",
+      "explanation_en": "A normal gamete has 23 chromosomes, and one with an extra has 24. Fusion yields a zygote with 47 chromosomes.",
+      "explanation_zh": "正常的配子有23條染色體，而多了一條的配子有24條。兩者融合會形成有47條染色體的合子。",
+      "correctIndex": 3,
+      "options_en": [
+        "23",
+        "45",
+        "46",
+        "47"
+      ],
+      "options_zh": [
+        "23",
+        "45",
+        "46",
+        "47"
+      ]
+    },
+    {
+      "page_reference": 5,
+      "type": "sq",
+      "question_en": "What is the genetic cause of Down syndrome at the chromosomal level?",
+      "question_zh": "在染色體層面上，唐氏綜合症的遺傳成因是甚麼？",
+      "explanation_en": "Down syndrome results from non-disjunction, leading to three copies of chromosome 21 instead of two.",
+      "explanation_zh": "唐氏綜合症是由於不分離現象，導致細胞內出現了三條第21號染色體（額外多了一條）。",
+      "answer_en": "Down syndrome is caused by non-disjunction, resulting in an extra chromosome 21 in the cells.",
+      "answer_zh": "唐氏綜合症是由不分離現象導致的，患者的細胞有額外一條第21號染色體。"
+    },
+    {
+      "page_reference": 6,
+      "type": "mc",
+      "question_en": "Which of the following describes the sex chromosome combination found in a female with Turner's syndrome?",
+      "question_zh": "下列哪一項描述了患有特納氏綜合症女性的性染色體組合？",
+      "explanation_en": "Females with Turner's syndrome have one X chromosome missing, which is described as XO.",
+      "explanation_zh": "患有特納氏綜合症的女性缺少了一條 X 染色體，其性染色體被描述為 XO。",
+      "correctIndex": 2,
+      "options_en": [
+        "XX",
+        "XXY",
+        "XO",
+        "XYY"
+      ],
+      "options_zh": [
+        "XX",
+        "XXY",
+        "XO",
+        "XYY"
+      ]
+    },
+    {
+      "page_reference": 6,
+      "type": "sq",
+      "question_en": "State one physical characteristic or symptom of a male with Klinefelter’s syndrome.",
+      "question_zh": "試寫出患有克蘭費爾特氏綜合症男性的一項身體特徵或症狀。",
+      "explanation_en": "The extra X chromosome affects male sexual development and fertility.",
+      "explanation_zh": "額外的 X 染色體會影響男性的性發育及生育能力。",
+      "answer_en": "They have some degree of breast development and are infertile because their testes are underdeveloped.",
+      "answer_zh": "他們的胸部會微微隆起，並且由於睾丸發育不良所以是不育的。"
+    },
+    {
+      "page_reference": 7,
+      "type": "mc",
+      "question_en": "Which of the following is considered a radiation mutagen rather than a chemical mutagen?",
+      "question_zh": "下列哪一項被視為輻射誘變劑而非化學誘變劑？",
+      "explanation_en": "Gamma rays are high-energy radiations, while nitrous acid, tar, and asbestos are chemical mutagens.",
+      "explanation_zh": "伽瑪射線屬於輻射誘變劑，而亞硝酸、焦油和石棉都屬於化學誘變劑。",
+      "correctIndex": 3,
+      "options_en": [
+        "Nitrous acid",
+        "Tar",
+        "Asbestos",
+        "Gamma rays"
+      ],
+      "options_zh": [
+        "亞硝酸",
+        "焦油",
+        "石棉",
+        "伽瑪射線"
+      ]
+    },
+    {
+      "page_reference": 7,
+      "type": "sq",
+      "question_en": "How do high-energy radiations like X-rays cause damage to DNA molecules?",
+      "question_zh": "高能量輻射（如 X 射線）是如何破壞 DNA 分子的？",
+      "explanation_en": "Radiation ionizes molecules to form free radicals, which are highly reactive and damage DNA.",
+      "explanation_zh": "輻射將分子電離並產生高度活躍的自由基，這些自由基會破壞 DNA。",
+      "answer_en": "They can ionize water or other molecules to form highly reactive free radicals, which then damage DNA molecules.",
+      "answer_zh": "它們能把水或其他分子電離並產生非常活躍的自由基，從而破壞 DNA 分子。"
+    },
+    {
+      "page_reference": 7,
+      "type": "mc",
+      "question_en": "Why might a substitution mutation have no effect on the protein produced?",
+      "question_zh": "為甚麼取代突變可能對所產生的蛋白質沒有影響？",
+      "explanation_en": "Because the genetic code is degenerate, the new triplet code might specify the same amino acid.",
+      "explanation_zh": "因為遺傳密碼是簡併的，新的三聯體密碼可能仍是對應同一種氨基酸。",
+      "correctIndex": 1,
+      "options_en": [
+        "Because it always occurs in somatic cells.",
+        "Because the new code may specify the same amino acid due to the degenerate nature of the genetic code.",
+        "Because human cells can instantly reverse any substitution.",
+        "Because proteins do not depend on the amino acid sequence for their shape."
+      ],
+      "options_zh": [
+        "因為它總是發生在體細胞中。",
+        "因為遺傳密碼是簡併的，新的密碼可能是同一種氨基酸的編碼。",
+        "因為人體細胞能瞬間逆轉任何取代突變。",
+        "因為蛋白質的形狀並不取決於氨基酸序列。"
+      ]
+    },
+    {
+      "page_reference": 7,
+      "type": "sq",
+      "question_en": "What are the regions of DNA called that do not encode a protein, where mutations often have no effect?",
+      "question_zh": "DNA 中沒有為蛋白質編碼的區域稱作甚麼？發生在這些區域的突變通常對生物沒有影響。",
+      "explanation_en": "The textbook mentions that mutations in non-coding regions do not affect the organism since they don't code for proteins.",
+      "explanation_zh": "課本提及發生在非編碼區的突變不會影響生物，因為它們沒有為蛋白質編碼。",
+      "answer_en": "They are called the non-coding regions.",
+      "answer_zh": "它們被稱為非編碼區。"
+    },
+    {
+      "page_reference": 8,
+      "type": "mc",
+      "question_en": "Why are mutations that occur in somatic cells NOT passed on to offspring?",
+      "question_zh": "為甚麼在體細胞發生的突變不會傳給後代？",
+      "explanation_en": "Somatic mutations only affect the cell itself and cells produced from it by mitotic division. They are lost when the individual dies.",
+      "explanation_zh": "體細胞發生的突變只會影響該細胞或它進行有絲細胞分裂而產生的細胞，並會在個體死亡後消失。",
+      "correctIndex": 0,
+      "options_en": [
+        "They only affect that cell or the cells it produces by mitotic cell division.",
+        "They are filtered out by natural selection before reproduction.",
+        "They only occur in people without reproductive organs.",
+        "They are instantly repaired by the immune system."
+      ],
+      "options_zh": [
+        "它們只會影響該細胞或它進行有絲細胞分裂而產生的細胞。",
+        "它們在繁殖前會被自然選擇淘汰。",
+        "它們只發生在沒有生殖器官的人身上。",
+        "它們會被免疫系統立即修復。"
+      ]
+    },
+    {
+      "page_reference": 8,
+      "type": "sq",
+      "question_en": "How can a specific beneficial gene mutation provide immunity to certain strains of HIV?",
+      "question_zh": "特定而有益的基因突變如何能令人對某些品系的愛滋病病毒（HIV）產生免疫力？",
+      "explanation_en": "A beneficial mutation can change the structure of a cell membrane protein, making the virus unable to attach to the host cell.",
+      "explanation_zh": "有益的突變可改變細胞膜蛋白質的結構，令病毒無法附着於宿主細胞。",
+      "answer_en": "The mutation alters the structure of a cell membrane protein, preventing the HIV strains from binding to it and entering the cell.",
+      "answer_zh": "突變改變了細胞膜上一種蛋白質的結構，令 HIV 無法與之結合及進入細胞。"
+    },
+    {
+      "page_reference": 8,
+      "type": "mc",
+      "question_en": "What essential role do inheritable mutations play in a population?",
+      "question_zh": "可遺傳的突變在種羣中擔當甚麼重要角色？",
+      "explanation_en": "Mutations introduce new genetic variations which are the raw material essential for natural selection and evolution.",
+      "explanation_zh": "突變引入了新的遺傳變異，這是自然選擇和進化得以進行的基本要素。",
+      "correctIndex": 2,
+      "options_en": [
+        "They ensure all individuals are identical.",
+        "They repair damage caused by chemical mutagens.",
+        "They provide a source of variations essential for natural selection.",
+        "They prevent gametes from fusing during fertilization."
+      ],
+      "options_zh": [
+        "它們確保所有個體都是相同的。",
+        "它們修復由化學誘變劑造成的損害。",
+        "它們提供變異的來源，使自然選擇得以進行。",
+        "它們防止配子在受精過程中融合。"
+      ]
+    },
+    {
+      "page_reference": 8,
+      "type": "sq",
+      "question_en": "What happens to the mutations present in somatic cells when an individual dies?",
+      "question_zh": "當一個帶有體細胞突變的個體死亡後，這些突變會怎樣？",
+      "explanation_en": "Since somatic cells are not involved in reproduction, their genetic material is not passed on.",
+      "explanation_zh": "由於體細胞不參與生殖過程，因此當中的遺傳物質不會遺傳給後代。",
+      "answer_en": "The mutations in the somatic cells will be lost.",
+      "answer_zh": "這些突變便會在種羣中消失。"
+    },
+    {
+      "page_reference": 9,
+      "type": "mc",
+      "question_en": "If a DNA sequence changes from 'AAAGCTACCTAT' to 'AAAGTCTACCTAT', what type of mutation has occurred?",
+      "question_zh": "如果一段 DNA 序列由「AAAGCTACCTAT」變為「AAAGTCTACCTAT」，這屬於哪一種突變？",
+      "explanation_en": "The 5th base 'C' is replaced by 'T', which is a substitution mutation.",
+      "explanation_zh": "第5個鹼基「C」被替換成了「T」，這屬於取代突變。",
+      "correctIndex": 1,
+      "options_en": [
+        "Deletion",
+        "Substitution",
+        "Insertion",
+        "Inversion"
+      ],
+      "options_zh": [
+        "缺失",
+        "取代",
+        "插入",
+        "倒位"
+      ]
+    },
+    {
+      "page_reference": 9,
+      "type": "sq",
+      "question_en": "According to the textbook summary, what is the difference between a gene mutation and a chromosome mutation?",
+      "question_zh": "根據課本總結，基因突變和染色體突變有甚麼分別？",
+      "explanation_en": "Gene mutation affects the base sequence of DNA, whereas chromosome mutation affects the overall structure or number of chromosomes.",
+      "explanation_zh": "基因突變影響的是 DNA 的鹼基序列，而染色體突變影響的則是染色體的整體結構或數目。",
+      "answer_en": "A gene mutation is a change in the base sequence of the DNA, whereas a chromosome mutation is a change in the structure or number of chromosomes.",
+      "answer_zh": "基因突變是指 DNA 的鹼基序列出現改變；染色體突變則是指染色體的結構或數目出現改變。"
+    }
+  ]
+}
