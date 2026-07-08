@@ -1,5 +1,5 @@
 const QUESTIONS_PATH = "questions/";
-const APPS_SCRIPT_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsaqUYXkM-eNIgB0FQjrERvMaZh1LWHVBrlg-1wbirEIOUk9F0dWpTMMx5G7d5UvstNw/exec";
 
 let manifest = [];
 let currentQuestions = [];
