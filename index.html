@@ -11,41 +11,55 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-<div class="app">
+<div class="page-flex">
 
-  <div class="topbar">
-    <div class="streak">🔥 <span id="streakCount">0</span> <span data-i18n="streakLabel">day streak</span></div>
-    <div class="topbar-right">
-      <button id="langToggle" class="lang-btn">中文</button>
-      <select id="dateSelect"></select>
+  <div id="questionNav" class="question-nav"></div>
+
+  <div class="app">
+    <div class="topbar">
+      <div class="streak">🔥 <span id="streakCount">0</span> <span data-i18n="streakLabel">day streak</span></div>
+      <div class="topbar-right">
+        <button id="leaderboardBtn" class="lang-btn">🏆</button>
+        <button id="langToggle" class="lang-btn">中文</button>
+        <select id="dateSelect"></select>
+      </div>
+    </div>
+
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <p class="progress-label" id="progressLabel">Question 1 of 10</p>
+
+    <div id="cardArea"></div>
+
+    <div id="emailGate" class="card">
+      <p id="emailPrompt">🔐 Sign in with your Google account to start:</p>
+      <div id="g_id_onload" data-client_id="YOUR_CLIENT_ID.apps.googleusercontent.com" data-callback="handleCredentialResponse"></div>
+      <div class="g_id_signin" data-type="standard" data-size="large" data-width="280"></div>
+    </div>
+
+    <div id="usernameGate" class="card" style="display:none;">
+      <p id="usernamePrompt">🙋 Enter a nickname for the leaderboard:</p>
+      <input type="text" id="usernameInput" maxlength="20" placeholder="e.g. Star123">
+      <button class="btn primary" id="usernameSaveBtn">Continue ➡️</button>
+    </div>
+
+    <div id="finishScreen" class="card" style="display:none;">
+      <h2 id="finishTitle">🎉 Nice work!</h2>
+      <p id="scoreText"></p>
+      <p id="scoreRecordNote" style="font-size:14px; color:#555;"></p>
+      <p id="signedInAs" style="color:#888; font-size:13px;"></p>
+      <button class="btn primary" id="sendEmailBtn">Send my results 📩</button>
+      <p id="statusMsg"></p>
     </div>
   </div>
-
-  <div class="progress-wrap">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-  <p class="progress-label" id="progressLabel">Question 1 of 10</p>
-
-  <div id="cardArea"></div>
-
-  <div id="emailGate" class="card">
-    <p id="emailPrompt">🔐 Sign in with your Google account to start:</p>
-    <div id="g_id_onload"
-         data-client_id="314314630146-sd8ajfbd8d0lnplmqs9a71k9osrgf1qq.apps.googleusercontent.com"
-         data-callback="handleCredentialResponse">
-    </div>
-    <div class="g_id_signin" data-type="standard" data-size="large" data-width="280"></div>
-  </div>
-
-  <div id="finishScreen" class="card" style="display:none;">
-    <h2 id="finishTitle">🎉 Nice work!</h2>
-    <p id="scoreText"></p>
-    <p id="signedInAs" style="color:#888; font-size:13px;"></p>
-    <button class="btn primary" id="sendEmailBtn">Send my results 📩</button>
-    <p id="statusMsg"></p>
-  </div>
-
 </div>
+
+<div id="leaderboardModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-header"><h2>🏆 Leaderboard</h2><button id="closeLeaderboard" class="close-btn">✕</button></div>
+    <div id="leaderboardList"></div>
+  </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
