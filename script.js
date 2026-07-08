@@ -91,7 +91,13 @@ function handleCredentialResponse(response) {
 async function loadManifest() {
   try {
     const res = await fetch(QUESTIONS_PATH + "manifest.json");
-    manifest = await res.json();
+    const allDates = await res.json();
+
+    const today = todayStr(); // reuses your existing function, e.g. "2026-07-08"
+
+    // Only keep dates that are today or earlier — future-dated files stay hidden
+    manifest = allDates.filter(date => date <= today).sort().reverse();
+
     const select = document.getElementById('dateSelect');
     select.innerHTML = '';
     manifest.forEach(date => {
@@ -100,10 +106,14 @@ async function loadManifest() {
       select.appendChild(opt);
     });
     select.addEventListener('change', e => loadDate(e.target.value));
-    if (manifest.length > 0) loadDate(manifest[0]);
+
+    if (manifest.length > 0) {
+      loadDate(manifest[0]); // safely loads TODAY's set, or most recent past one
+    } else {
+      document.getElementById('cardArea').innerHTML = '<p style="color:white;">No quiz available yet today — check back soon!</p>';
+    }
   } catch (err) {
     console.error('Failed to load manifest.json', err);
-    document.getElementById('cardArea').innerHTML = '<p style="color:white;">⚠️ Could not load questions.</p>';
   }
 }
 
