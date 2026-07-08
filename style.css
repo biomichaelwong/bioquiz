@@ -8,8 +8,17 @@ body {
   justify-content: center;
   padding: 16px;
 }
+
+/* ---- LAYOUT ---- */
+.page-flex {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
 .app { width: 100%; max-width: 480px; }
 
+/* ---- TOP BAR ---- */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -45,6 +54,7 @@ body {
   font-family: inherit;
 }
 
+/* ---- PROGRESS BAR ---- */
 .progress-wrap {
   background: rgba(255,255,255,0.5);
   border-radius: 10px;
@@ -52,9 +62,20 @@ body {
   overflow: hidden;
   margin-bottom: 4px;
 }
-.progress-bar { height: 100%; width: 0%; background: #4caf50; transition: width 0.3s ease; }
-.progress-label { color: white; font-size: 13px; margin: 0 0 12px 4px; font-weight: 700; }
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  transition: width 0.3s ease;
+}
+.progress-label {
+  color: white;
+  font-size: 13px;
+  margin: 0 0 12px 4px;
+  font-weight: 700;
+}
 
+/* ---- CARDS ---- */
 .card {
   background: white;
   border-radius: 20px;
@@ -63,10 +84,14 @@ body {
   margin-bottom: 16px;
   animation: pop 0.25s ease;
 }
-@keyframes pop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes pop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
 .q-text { font-size: 19px; font-weight: 700; margin-bottom: 14px; color: #333; }
 
+/* ---- MC OPTIONS ---- */
 .options { display: flex; flex-direction: column; gap: 10px; }
 .option-btn {
   padding: 14px;
@@ -83,6 +108,7 @@ body {
 .option-btn.correct { background: #c8f7c5; border-color: #4caf50; font-weight: 700; }
 .option-btn.wrong { background: #f8d7da; border-color: #dc3545; }
 
+/* ---- SHORT QUESTION INPUT ---- */
 textarea.sq-input {
   width: 100%;
   min-height: 90px;
@@ -93,7 +119,15 @@ textarea.sq-input {
   font-size: 16px;
   margin-bottom: 10px;
 }
+.sq-shown-answer {
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
 
+/* ---- ANSWER / EXPLANATION BOX ---- */
 .answer-box {
   margin-top: 14px;
   padding: 14px;
@@ -103,6 +137,7 @@ textarea.sq-input {
   font-size: 15px;
 }
 
+/* ---- BUTTONS ---- */
 .btn {
   width: 100%;
   padding: 14px;
@@ -117,8 +152,13 @@ textarea.sq-input {
 .btn.primary { background: #6c5ce7; color: white; }
 .btn.primary:active { transform: scale(0.98); }
 .btn.next { background: #00b894; color: white; }
+.btn.prev { background: #636e72; color: white; }
 
-input[type=email] {
+.nav-row { display: flex; gap: 8px; }
+.nav-row .btn { flex: 1; }
+
+/* ---- INPUTS ---- */
+input[type=email], input[type=text] {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
@@ -128,43 +168,81 @@ input[type=email] {
   margin: 10px 0;
 }
 
-.page-flex { display:flex; justify-content:center; gap:10px; width:100%; }
+#finishScreen { text-align: center; }
 
+/* ---- QUESTION NAVIGATOR SIDEBAR ---- */
 .question-nav {
   flex: 0 0 46px;
-  display:flex; flex-direction:column; gap:6px;
-  max-height: 90vh; overflow-y:auto;
-  position: sticky; top: 16px; padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 16px;
+  padding: 4px;
 }
 .nav-btn {
-  width:36px; height:36px; border-radius:50%;
-  border:2px solid white; background: rgba(255,255,255,0.6);
-  font-weight:700; font-family:inherit; font-size:13px;
-  cursor:pointer; color:#333; flex-shrink:0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: rgba(255,255,255,0.6);
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+  flex-shrink: 0;
 }
-.nav-btn.current { border-color:#6c5ce7; background:#6c5ce7; color:white; }
-.nav-btn.correct { background:#4caf50; color:white; border-color:#4caf50; }
-.nav-btn.wrong { background:#dc3545; color:white; border-color:#dc3545; }
-.nav-btn.done { background:#00b894; color:white; border-color:#00b894; }
-.nav-btn.locked { opacity:0.35; cursor:not-allowed; }
+.nav-btn.current { border-color: #6c5ce7; background: #6c5ce7; color: white; }
+.nav-btn.correct { background: #4caf50; color: white; border-color: #4caf50; }
+.nav-btn.wrong { background: #dc3545; color: white; border-color: #dc3545; }
+.nav-btn.done { background: #00b894; color: white; border-color: #00b894; }
+.nav-btn.locked { opacity: 0.35; cursor: not-allowed; }
 
-.nav-row { display:flex; gap:8px; }
-.nav-row .btn { flex:1; }
-.btn.prev { background:#636e72; color:white; }
-
-.sq-shown-answer { background:#f7f7f7; padding:10px; border-radius:10px; margin-bottom:10px; font-size:15px; }
-
+/* ---- LEADERBOARD MODAL ---- */
 .modal-overlay {
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center;
-  z-index:1000; padding:16px;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
 }
-.modal-box { background:white; border-radius:16px; padding:20px; max-width:400px; width:100%; max-height:80vh; overflow-y:auto; }
-.modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
-.close-btn { background:none; border:none; font-size:20px; cursor:pointer; }
-.lb-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #eee; font-size:14px; }
-.lb-rank { font-weight:700; width:40px; }
-.lb-name { flex:1; }
-.lb-score { font-weight:700; color:#6c5ce7; }
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
+.lb-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.lb-rank { font-weight: 700; width: 40px; }
+.lb-name { flex: 1; }
+.lb-score { font-weight: 700; color: #6c5ce7; }
 
-#finishScreen { text-align: center; }
+/* ---- MOBILE RESPONSIVE TWEAK ---- */
+@media (max-width: 420px) {
+  .page-flex { gap: 6px; }
+  .question-nav { flex: 0 0 40px; }
+  .nav-btn { width: 32px; height: 32px; font-size: 12px; }
+}
