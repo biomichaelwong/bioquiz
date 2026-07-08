@@ -84,16 +84,28 @@ document.getElementById('usernameSaveBtn').addEventListener('click', () => {
 async function loadManifest() {
   try {
     const res = await fetch(QUESTIONS_PATH + "manifest.json");
-    manifest = await res.json();
+    const fullManifest = await res.json();
+    const today = todayStr();
+
+    // Only keep dates that are today or earlier
+    manifest = fullManifest.filter(date => date <= today).sort().reverse();
+
     const select = document.getElementById('dateSelect');
     select.innerHTML = '';
+
+    if (manifest.length === 0) {
+      select.innerHTML = '<option>No quizzes available yet</option>';
+      document.getElementById('cardArea').innerHTML = '<p style="color:white;">No quiz available today yet — please check back later!</p>';
+      return;
+    }
+
     manifest.forEach(date => {
       const opt = document.createElement('option');
       opt.value = date; opt.textContent = date;
       select.appendChild(opt);
     });
     select.addEventListener('change', e => loadDate(e.target.value));
-    if (manifest.length > 0) loadDate(manifest[0]);
+    loadDate(manifest[0]); // most recent valid date
   } catch (err) {
     console.error('Failed to load manifest.json', err);
   }
