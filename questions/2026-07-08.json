@@ -274,10 +274,10 @@
       "type": "sq",
       "question_en": "Observe the mutation from 'AAAGCTACCTAT' to 'AAAGTCTACCTAT'. Which type of mutation has occurred?",
       "question_zh": "觀察從「AAAGCTACCTAT」到「AAAGTCTACCTAT」的突變。發生了哪一種突變？",
-      "explanation_en": "The 5th base 'C' is replaced by 'T', which is a substitution mutation.",
-      "explanation_zh": "第5個鹼基「C」被替換成了「T」，這屬於取代突變。",
-      "answer_en": "A substitution mutation has occurred, where the base C is replaced by the base T.",
-      "answer_zh": "發生了取代突變，當中的鹼基 C 被鹼基 T 所取代。"
+      "explanation_en": "When comparing the two sequences, you can clearly see that a 'T' was inserted between the 'G' and the 'C'. This addition increases the total sequence length from 12 bases to 13 bases. Consequently, this extra base will likely cause a shift in the reading frame that alters how the genetic code is read.",
+      "explanation_zh": "比較這兩個序列時，可以清楚看到在「G」和「C」之間插入了一個「T」。這項加添使得序列的總長度從 12 個鹼基增加至 13 個鹼基。因此，這個多出的鹼基很可能會導致閱讀框的轉移，改變基因密碼的讀取方式。",
+      "answer_en": "A insertion mutation has occurred. The DNA sequence has gained an extra nucleotide base 'T' at the 5th position, changing its overall length.",
+      "answer_zh": "發生了插入突變，DNA 序列中的第五個位置增加了一個額外的核苷酸鹼基，從而改變了其總長度。"
     },
     {
       "page_reference": 9,
